@@ -55,6 +55,7 @@ public class IntakePivot extends Command {
     SmartDashboard.putNumber("current speed", i.getspeed());
     SmartDashboard.putNumber(
         "intake encoder", i.getintakePivotMotor().getEncoder().getPositionConversionFactor());
+
     // inverted help me
     if (!i.getfrontLimit().get() && i.getisForward()) {
       i.setspeed(0);
@@ -75,11 +76,13 @@ public class IntakePivot extends Command {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    i.setspeed(0.0);
+  }
 
   // Returns true when the command should end.//
   @Override
   public boolean isFinished() {
-    return false;
+    return true;
   }
 }

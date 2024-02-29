@@ -20,6 +20,6 @@ public class Unfolding extends SequentialCommandGroup {
   public Unfolding(Shooter s, Intake i) {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(new ShooterUp(s, s.getshooterPivot()), new MoveIntake(i));
+    addCommands(new ShooterUp(s).andThen(new MoveIntake(i)));
   }
 }

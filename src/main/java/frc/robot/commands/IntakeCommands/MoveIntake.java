@@ -21,12 +21,14 @@ public class MoveIntake extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    i.setspeed(0.2);
+    //  i.setspeed(0.2);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    i.setspeed(0.2);
+  }
 
   // Called once the command ends or is interrupted.
   @Override

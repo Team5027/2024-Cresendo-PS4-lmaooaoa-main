@@ -13,8 +13,8 @@ public class ShooterUp extends Command {
   private final CANSparkMax m;
 
   /** Creates a new ShooterUp. */
-  public ShooterUp(Shooter s, CANSparkMax m) {
-    this.m = m;
+  public ShooterUp(Shooter s) {
+    this.m = s.getshooterPivot();
     addRequirements(s);
     // Use addRequirements() here to declare subsystem dependencies.
   }
@@ -22,17 +22,19 @@ public class ShooterUp extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m.set(0.5);
+    // m.set(0.5);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    m.set(0.5);
+  }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    // m.set(0.0);
+    m.set(0.0);
   }
 
   // Returns true when the command should end.

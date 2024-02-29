@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
 import frc.robot.commands.DriveCommands;
 import frc.robot.commands.GroupedCommands.StopStorage;
 import frc.robot.commands.GroupedCommands.Storage;
-import frc.robot.commands.GroupedCommands.Unfolding;
+import frc.robot.commands.IntakeCommands.MoveIntake;
 import frc.robot.commands.ShooterCommands.ShootSpeaker;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Indexer;
@@ -186,7 +186,11 @@ public class RobotContainer {
     x.onFalse(new StopStorage(intakeSubsystem, shooterSubsystem));
 
     b = new JoystickButton(controller, 2);
-    b.toggleOnTrue(new Unfolding(shooterSubsystem, intakeSubsystem));
+    // b.toggleOnTrue(new ShooterUp(shooterSubsystem));
+    b.toggleOnTrue(new MoveIntake(intakeSubsystem));
+
+    // unfolding: shooter up first before intake out
+    // b.toggleOnTrue(new Unfolding(shooterSubsystem, intakeSubsystem));
 
     y = new JoystickButton(controller, 4);
     // y.toggleOnTrue(new Button4(shooterSubsystem, , null, null, controller))
